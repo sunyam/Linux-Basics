@@ -5,4 +5,4 @@ all:
 	tail -n +2 murder_2015_final.csv > murder_data.csv
 	awk -F"," '{ if ($$2 == "Illinois") { print } }' murder_2015_final.csv > murder_illinois.csv
 	awk -F"," '{ if ($$2 == "Maryland") { print } }' murder_2015_final.csv | wc -l > murder_maryland.count
-	awk -F"," '{ print $$3, $$4 }' murder_illinois.csv > murder_illinois_2014-2015.csv
+	awk -F"," '{ OFS=","; print $$3, $$4 }' murder_illinois.csv > murder_illinois_2014-2015.csv
